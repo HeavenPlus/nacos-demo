@@ -6,4 +6,4 @@ spring:
       discovery:
         server-addr: 127.1.1.0:8847
 server:
-  port: 8088
+  port: 8087

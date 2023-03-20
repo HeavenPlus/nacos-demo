@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author zhanggq
  * @date 2023/3/16 16:21
@@ -20,7 +22,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @GetMapping("/get")
-    public String get() {
-        return "会员服务端口号:" + prot;
+    public String get(HttpServletRequest request) {
+        String serverPort = request.getHeader("serverPort");
+        return "会员服务端口号:" + prot + "，网关端口号：" + serverPort;
     }
 }
